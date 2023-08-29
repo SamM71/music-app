@@ -3,6 +3,27 @@ import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
 
+const LikeButton = () => {
+  const [image, setLiked] = useState(reactLogo);
+  const [isClicked, setIsClicked] = useState(false);
+  
+
+  const handleClick = () => {
+    if (isClicked) {
+      setLiked(reactLogo);
+    } else {
+      setLiked(viteLogo);
+    }
+    setIsClicked(!isClicked);
+  };
+
+  return (
+    <button className={ `like-button ${isClicked && 'liked'}` } onClick={ handleClick }>
+      <span className="likes-counter"><img src={image}/></span>
+    </button>
+  );
+};
+
 function Info() {
   return (
     <>
@@ -22,11 +43,12 @@ function Info() {
 function Songs() {
   return (
     <>
-      <div className="songs">
+      <h2>Songs: </h2>
+      <div className="list">
         <ul>
-          <li>Naive</li>
-          <li>She Moves In Her Own Way</li>
-          <li>Seaside</li>
+          <li>Naive<LikeButton/></li>
+          <li>She Moves In Her Own Way<LikeButton/></li>
+          <li>Seaside<LikeButton/></li>
         </ul>
       </div>
     </>
