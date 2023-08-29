@@ -55,11 +55,39 @@ function Songs() {
   )
 }
 
+function Form() {
+  const [song, setSong] = useState("")
+  const [favSong, setFavSong] = useState("")
+
+  function handleSong(e) {
+    setSong(e.target.value);
+  }
+
+  function handleSubmit(e) {
+    e.preventDefault()
+    setFavSong(`${song} is a good choice!`);
+  }
+
+  return(
+    <form onSubmit={handleSubmit}>
+      <p>What's your favourite song by The Kooks?</p>
+      <input type="text"
+      onChange={handleSong} 
+      name="favSong"
+      placeholder="Favourite Song"
+      value={song}/>
+      <button type="submit">Submit</button>
+      <p>{favSong}</p>
+    </form>
+  )
+}
+
 function App() {
   return (
     <>
       <Info />
       <Songs />
+      <Form />
     </>
   )
 
