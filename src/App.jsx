@@ -19,9 +19,26 @@ function Info() {
   )
 }
 
+function Songs() {
+  return (
+    <>
+      <div className="songs">
+        <ul>
+          <li>Naive</li>
+          <li>She Moves In Her Own Way</li>
+          <li>Seaside</li>
+        </ul>
+      </div>
+    </>
+  )
+}
+
 function App() {
   return (
-    <Info />
+    <>
+      <Info />
+      <Songs />
+    </>
   )
 
 }
