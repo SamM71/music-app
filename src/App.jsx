@@ -1,25 +1,25 @@
 import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
+import likeIcon from './assets/like_empty.png'
+import likedIcon from './assets/like_filled.png'
 import './App.css'
 
 const LikeButton = () => {
-  const [image, setLiked] = useState(reactLogo);
+  const [image, setLiked] = useState(likeIcon);
   const [isClicked, setIsClicked] = useState(false);
   
 
   const handleClick = () => {
     if (isClicked) {
-      setLiked(reactLogo);
+      setLiked(likeIcon);
     } else {
-      setLiked(viteLogo);
+      setLiked(likedIcon);
     }
     setIsClicked(!isClicked);
   };
 
   return (
     <button className={ `like-button ${isClicked && 'liked'}` } onClick={ handleClick }>
-      <span className="likes-counter"><img src={image}/></span>
+      <span className="likes-counter"><img src={image} alt="like button" width="25" height="25"/></span>
     </button>
   );
 };
